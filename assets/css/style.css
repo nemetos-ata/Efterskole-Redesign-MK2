@@ -169,19 +169,19 @@ header{
     background-size: cover;
 }
 .panel0{
-    background-image: url('../images/Image_01@3x.png');
+    background-image: url('../images/Image_01@1x.jpg');
 }
 .panel1{
-    background-image: url('../images/Image_02@3x.png');
+    background-image: url('../images/Image_02@1x.jpg');
 }
 .panel2{
-    background-image: url('../images/Image_03@3x.png');
+    background-image: url('../images/Image_03@1x.jpg');
 }
 .panel3{
-    background-image: url('../images/Image_04@3x.png');
+    background-image: url('../images/Image_04@1x.jpg');
 }
 .panel4{
-    background-image: url('../images/Image_05@3x.png');
+    background-image: url('../images/Image_05@1x.jpg');
 }
 .panel .promoTextWrp{
     width: 520px;
@@ -194,7 +194,7 @@ header{
 }
 /* ----===== SERCH ====---- */
 #map{
-    background-image: url('../images/map.png');
+    background-image: url('../images/map.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -206,7 +206,7 @@ header{
     display:none;
 }
 .mapCower{
-    background-image: url('../images/Image_18@3x.png');
+    background-image: url('../images/Image_18@1x.jpg');
     background-color: #b2bc00;
     background-position: center center;
     background-repeat: no-repeat;
@@ -236,7 +236,7 @@ header{
     border-bottom: 1px solid #b2bc00;
 }
 .calcCower{
-    background-image: url('../images/Image_18@3x.png');
+    background-image: url('../images/Image_18@1x.jpg');
     background-color: #ef7d00;
     background-position: center center;
     background-repeat: no-repeat;
