@@ -322,6 +322,12 @@ header{
     top: 16px;
     right: 9px;
 }
+
+/* ----===== NEWS ====---- */
+.video-js{
+    width:100vw;
+}
+
 /* ----===== NEWS ====---- */
 .carousel-item{
     align-items:center;
