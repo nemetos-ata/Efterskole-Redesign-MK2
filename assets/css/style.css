@@ -3,6 +3,9 @@ body{
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
 }
+#content{
+    overflow-x: hidden;
+}
 h1, h2,h3,h4,h5,h6{
     font-family: 'PT Serif', serif;
     color: #4a4a4a;
@@ -61,6 +64,9 @@ dl, ol, ul{
 .carousel-indicators .active{
     background-color: #fff;
 }
+.carousel-inner{
+    width:100vw;
+}
 .btn-primary{
     font-size: 16px;
     line-height:46px; 
@@ -117,14 +123,24 @@ header{
     color: white;
     font-weight: bolder;
     position: absolute;
-    top: 3px;
-    left: 5px;
+    top: 15px;
+    left: 22px;
     font-size: 3rem;
     font-family: 'Open Sans', sans-serif;
     letter-spacing: 2px;
+    text-indent: -9000px;
+    overflow: hidden;
+    background-image: url('../images/Logo_White@2x.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    width:200px;
+    height:42px;
+    transition: all .04s ease;
 }
 .logo.active{
     color:black;
+    background-image: url('../images/Logo_Black@2x.svg');
 }
 .menuOpen{
     position: absolute;
@@ -160,6 +176,42 @@ header{
 }
 
 /* ----===== TOP SLIDER ====---- */
+.arrows{
+    position:fixed;
+    right:18px;
+    top:50%;
+    margin-top: -72px;
+    z-index: 10;
+    color:white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    font-size: 18px;
+}
+.arrows .curent{
+    color: #b2bc00;
+}
+.arrows .pointer{
+    text-indent: -9000px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    width: 40px;
+    height: 50px;
+    transition: all .4s ease;
+    cursor: pointer;
+}
+.arrows .pointer:hover{
+    width: 50px;
+}
+.arrows #up{
+    background-image: url('../images/Arrow_Up_White@2x.svg');
+}
+.arrows #down{
+    background-image: url('../images/Arrow_Down_White@2x.svg');
+}
 .panel{
     width:100vw;
     height:100vh;
@@ -167,6 +219,7 @@ header{
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
 }
 .panel0{
     background-image: url('../images/Image_01@1x.jpg');
@@ -206,7 +259,7 @@ header{
     display:none;
 }
 .mapCower{
-    background-image: url('../images/Image_18@1x.jpg');
+    background-image: url('../images/Image_18@3x.png');
     background-color: #b2bc00;
     background-position: center center;
     background-repeat: no-repeat;
@@ -236,7 +289,7 @@ header{
     border-bottom: 1px solid #b2bc00;
 }
 .calcCower{
-    background-image: url('../images/Image_18@1x.jpg');
+    background-image: url('../images/Image_18@3x.png');
     background-color: #ef7d00;
     background-position: center center;
     background-repeat: no-repeat;
@@ -263,7 +316,7 @@ header{
 .card-header::after{
     content: "";
     height:14px;
-    border-right: 12x solid #b2bc00;
+    border-right: 2px solid #b2bc00;
     display: block;
     position: absolute;
     top: 16px;
