@@ -112,18 +112,27 @@ form h6{
     font-size: 16px;
     text-transform: uppercase;
 }
+p {
+    margin-bottom: 2rem;
+}
 /* ---===== HEADER ====--- */
 header{
-    position: absolute;
-    top:0;
-    left:0;
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: 2;
+    width: 100vw;
+    height: 105px;
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center; */
 }
 .logo{
     color: white;
     font-weight: bolder;
     position: absolute;
-    top: 15px;
+    top: 50%;
     left: 22px;
     font-size: 3rem;
     font-family: 'Open Sans', sans-serif;
@@ -136,16 +145,23 @@ header{
     background-size: contain;
     width:200px;
     height:42px;
+    margin-bottom: 0;
+    margin-top: -21px;
     transition: all .04s ease;
 }
 .logo.active{
     color:black;
-    background-image: url('../images/Logo_Black@2x.svg');
+    background-image: url('../images/Logo_Black@2x.svg');    
+    background-color: transparent;
+}
+.onPage{
+    background-color: rgba(0,0,0,.2);
 }
 .menuOpen{
     position: absolute;
     right:30px;
-    top:16px;
+    top:50%;
+    margin-top: -27px;
     padding: 0;
    /* background-image: url(../images/Hamburger_Menu_Black@2x.svg);
     width: 40px;
@@ -203,9 +219,12 @@ header{
     right: 0;
     top: 9px;
 }
+.main-menu .nav-item{
+    padding: 15px 16px 0;
+}
 .main-menu .nav-link{
     color: #fff;
-    padding-bottom: 20px;
+    padding: 5px 0 17px;
     border-bottom: 2px solid #fff;
     opacity: 0;
     transition: all .4s ease; 
@@ -214,8 +233,8 @@ header{
     color: #4a4a4a;
     opacity: 1;
 }
-.main-menu.show .nav-link:hover,
-.main-menu.show .nav-link.active{
+.menuWrp.show .main-menu .nav-link:hover,
+.menuWrp.show .main-menu .nav-link.active{
     border-bottom: 2px solid #b2bc00;
     color: #b2bc00;
 }
@@ -233,6 +252,9 @@ header{
     align-items: center;
     align-content: center;
     font-size: 18px;
+}
+.arrows p{
+    margin:0;
 }
 .arrows .curent{
     color: #b2bc00;
@@ -266,6 +288,21 @@ header{
     background-size: cover;
     position: relative;
 }
+#panelSlid_1{
+    position: relative;
+}
+#panelSlid_1::before{
+    content: "";
+    width:100%;
+    height:100%;
+    position: absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    background-color: rgba(0,0,0,.4);
+}
+
 .panel0{
     background-image: url('../images/Image_01@1x.jpg');
 }
@@ -284,8 +321,9 @@ header{
 .panel .promoTextWrp{
     width: 520px;
     position: absolute;
-    left: 20%;
-    bottom: 30%;
+    left: 12%;
+    bottom: 50%;
+    margin-bottom: -130px;
 } 
 .panel h2{
     font-size: 64px;
@@ -388,11 +426,13 @@ header{
 }
 .smalPrewiev {
     border: solid 1px #d1d1cd;
-    align-items:center;
     align-content:center;
     flex-direction: column;
     position: relative;
     padding: 48px 32px 48px 84px;
+    min-height: 360px;
+    display: flex;
+    justify-content: center;
 }
 .smalPrewiev h3{
     font-size: 36px;
