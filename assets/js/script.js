@@ -2,11 +2,15 @@ var bootstrapButton = $.fn.button.noConflict() // return $.fn.button to previous
 $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Bootstrap functionality
 
 $( document ).ready(function() {
-    $('#collapseExample').on('shown.bs.collapse', function (e) {
+    $('#collapseExample').on('show.bs.collapse', function (e) {
         $('.logo').addClass('active');
+        $('.menuWrp').addClass('active');
+        $('.menuOpen').addClass('d-none');
     });
-    $('#collapseExample').on('hidden.bs.collapse', function (e) {
+    $('#collapseExample').on('hide.bs.collapse', function (e) {
         $('.logo').removeClass('active');
+        $('.menuWrp').removeClass('active');
+        $('.menuOpen').removeClass('d-none');
     });
     
     // Some scrool magick

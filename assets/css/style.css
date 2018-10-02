@@ -154,23 +154,68 @@ header{
     background-color: #fff; */
 }
 .menuWrp{
+    background-color: transparent;
+    padding:0 20px;
+    opacity: 0;
+    transition: all .4s ease; 
+}
+.iconic-magnifying-glass{
+    display: inline-block;
+    width:40px;
+    height:42px;    
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+.close {
+    line-height: 38px;
+    font-size: 38px;
+    color:#fff;
+}
+.menuWrp.active{
+    opacity: 1;
     background-color: #fff;
-    width:100wv;
+}
+.menuWrp.show .close{
+    color:#000;
+}
+.menuWrp.show .iconic-magnifying-glass{
+    background-image: url('../images/Search_Black@2x.svg');
 }
 .second-menu .nav-link{
-    color: #9b9b9b;
+    color: #fff;
     font-size: 14px;
+    transition: color .4s ease; 
+}
+.menuWrp.show .second-menu .nav-link{
+    color: #9b9b9b;
+}
+.menuWrp.show .second-menu .nav-item:first-child .nav-link{
+    position: relative;
+}
+.menuWrp.show .second-menu .nav-item:first-child .nav-link::before{
+    content: "";
+    background: #9b9b9b;
+    display: block;
+    width: 2px;
+    height: 18px;
+    position: absolute;
+    right: 0;
+    top: 9px;
 }
 .main-menu .nav-link{
-    color: #4a4a4a;
+    color: #fff;
     padding-bottom: 20px;
     border-bottom: 2px solid #fff;
+    opacity: 0;
+    transition: all .4s ease; 
 }
-.main-menu .nav-link:hover{
-    border-bottom: 2px solid #b2bc00;
-    color: #b2bc00;
+.menuWrp.show .main-menu .nav-link{
+    color: #4a4a4a;
+    opacity: 1;
 }
-.main-menu .nav-link.active{
+.main-menu.show .nav-link:hover,
+.main-menu.show .nav-link.active{
     border-bottom: 2px solid #b2bc00;
     color: #b2bc00;
 }
