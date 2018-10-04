@@ -47,10 +47,8 @@ $( document ).ready(function() {
             });
     });
     
-    // Some scrool magick
-
-    document.getElementById('content').addEventListener('wheel', scrollAnimate);
-
+// ====---- Some scrool magick
+    // CHECK of scrole
     $(window).scroll(function(){
         let wih = window.innerHeight;
         let pYof = window.pageYOffset;
@@ -78,73 +76,98 @@ $( document ).ready(function() {
             // });
         }
     });
-    
+
+
+
+    document.getElementById('content').addEventListener('wheel', scrollAnimate);    
     function scrollAnimate(){
         let wih = window.innerHeight;
         let length = $('.panel').length;
         let pYof = window.pageYOffset;
-        let priorOffset = $('#curent').attr('offset');
-        // console.log(priorOffset);
-        // console.log('window.innerHeight:  ' + wih);
-        // console.log('document.body.clientHeight:  ' + document.body.clientHeight);
-        // console.log('window.pageYOffset: ' + pYof );
-        // console.log($('.panel').length);
+        let priorOffset = $('#curent').attr('data-offset');
+        console.log(priorOffset);
+        console.log('window.innerHeight:  ' + wih);
+        console.log('document.body.clientHeight:  ' + document.body.clientHeight);
+        console.log('window.pageYOffset: ' + pYof );
+        console.log($('.panel').length);
 
         if(pYof < wih*length){
-            if(priorOffset > pYof){
-                let curent = $('#curent').html();
-                curent = +curent;
-                let target = (curent - 1) < 1 ? 1 : (curent - 1);
-                $('#curent').attr('curent', target);
-                let destination = $('#panelSlid_' + target).offset().top;
-                $('html').stop().animate({
-                    scrollTop: destination
-                }, {
-                    duration: 400, 
-                    specialEasing: {
-                    position: 'easeOutBounce'
-                    },
-                    complete: function(){
-                        let pYof = window.pageYOffset;
-                        $('#curent').attr('offset', pYof);
-                    }
-                });
-                $('#curent').html(target);
+            if(priorOffset > pYof ){
+                console.log('11');            
+                scrollUpBase();
             }
-
             if(priorOffset < pYof){
-                let destination = "";
-                let target = 1;
-                let curent = $('#curent').html();
-                let total = $('#total').html();
-                curent = +curent;
-                total = +total;
-                $('#curent').attr('curent', (curent + 1) > 4 ? 5 : (curent + 1));
-                if (curent + 1 > total){
-                    target = 4;
-                    destination = $('#serch').offset().top;
-                } else {
-                    target = curent + 1;
-                    destination = $('#panelSlid_' + target).offset().top;
-                }
-                $('html').stop().animate({
-                    scrollTop: destination
-                }, {
-                    duration: 400, 
-                    specialEasing: {
-                    position: 'easeOutBounce'
-                    },
-                    complete: function(){
-                        let pYof = window.pageYOffset;
-                        $('#curent').attr('offset', pYof);
-                    }
-                });
-                $('#curent').html(target);
+                console.log('22');
+                scrollDownBase();
             }
         }
     };
 
-    /* SCROOL MAGIC */
+    $('#up').click(function() {      
+        scrollDownBase();
+    });
+    
+    $('#down').click(function() {
+        scrollDownBase();
+    });
+
+    $(window).on('keydown', function(e){
+        if($('#curent').attr('data-curent') < 5){
+            if(e.which === 38){            
+                scrollUpBase();
+            }
+            if(e.which === 40){
+                scrollDownBase();
+            }
+        }
+    });
+
+    // suport function
+    function scrollDownBase(){
+        let destination = "";
+        let target = 1;
+        let curent = $('#curent').html();
+        let total = $('#total').html();
+        curent = +curent;
+        total = +total;
+        $('#curent').attr('data-curent', (curent + 1) > 4 ? 5 : (curent + 1));
+        if (curent + 1 > total){
+            target = 4;
+            destination = $('#serch').offset().top;
+        } else {
+            target = curent + 1;
+            destination = $('#panelSlid_' + target).offset().top;
+        }        
+        scrollAnimmate(destination);
+        $('#curent').html(target);
+    }
+    function scrollUpBase(){
+        let curent = $('#curent').html();
+        curent = +curent;
+        let target = (curent - 1) < 1 ? 1 : (curent - 1);
+        $('#curent').attr('data-curent', target);
+        let destination = $('#panelSlid_' + target).offset().top;
+        scrollAnimmate(destination);
+        $('#curent').html(target);
+    }
+    function scrollAnimmate(destination){
+        $('html').animate({
+            scrollTop: destination
+        }, {
+            duration: 400, 
+            specialEasing: {
+            position: 'easeOutBounce'
+            },
+            complete: scrollAnimComplete()
+        });
+    }
+    function scrollAnimComplete(){
+        let pYof = window.pageYOffset;
+        $('#curent').attr('data-offset', pYof);
+    }
+
+    
+    /* SCROOL MAGIC PLUGIN */
 
     // var controller = new ScrollMagic.Controller({
     //     globalSceneOptions: {
@@ -164,115 +187,9 @@ $( document ).ready(function() {
     // }
     /* SCROOL MAGIC */
 
-    $('#up').click(function() {
-        let curent = $('#curent').html();
-        curent = +curent;
-        let target = (curent - 1) < 1 ? 1 : (curent - 1);
-        $('#curent').attr('curent', target);
-        let destination = $('#panelSlid_' + target).offset().top;
-        $('html').animate({
-            scrollTop: destination
-          }, {
-            duration: 400, 
-            specialEasing: {
-              position: 'easeOutBounce'
-            },
-            complete: function(){
-                let pYof = window.pageYOffset;
-                $('#curent').attr('offset', pYof);
-            }
-          });
-        $('#curent').html(target);
-    });
-    
-    $('#down').click(function() {
-        let destination = "";
-        let target = 1;
-        let curent = $('#curent').html();
-        let total = $('#total').html();
-        curent = +curent;
-        total = +total;
-        $('#curent').attr('curent', (curent + 1) > 4 ? 5 : (curent + 1));
-        if (curent + 1 > total){
-            target = 4;
-            destination = $('#serch').offset().top;
-        } else {
-            target = curent + 1;
-            destination = $('#panelSlid_' + target).offset().top;
-        }
-        $('html').animate({
-            scrollTop: destination
-          }, 
-          {
-            duration: 400, 
-            specialEasing: {
-              position: 'easeOutBounce'
-            },
-            complete: function(){
-                let pYof = window.pageYOffset;
-                $('#curent').attr('offset', pYof);
-            }
-        });
-        $('#curent').html(target);
-    });
-
-    $(window).on('keydown', function(e){
-        if($('#curent').attr('curent') < 5){
-            if(e.which === 38){            
-                let curent = $('#curent').html();
-                curent = +curent;
-                let target = (curent - 1) < 1 ? 1 : (curent - 1);
-                $('#curent').attr('curent', target);
-                let destination = $('#panelSlid_' + target).offset().top;
-                $('html').animate({
-                    scrollTop: destination
-                }, {
-                    duration: 400, 
-                    specialEasing: {
-                    position: 'easeOutBounce'
-                    },
-                    complete: function(){
-                        let pYof = window.pageYOffset;
-                        $('#curent').attr('offset', pYof);
-                    }
-                });
-                $('#curent').html(target);
-            }
-            if(e.which === 40){            
-                let destination = "";
-                let target = 1;
-                let curent = $('#curent').html();
-                let total = $('#total').html();
-                curent = +curent;
-                total = +total;
-                $('#curent').attr('curent', (curent + 1) > 4 ? 5 : (curent + 1));
-                if (curent + 1 > total){
-                    target = 4;
-                    destination = $('#serch').offset().top;
-                } else {
-                    target = curent + 1;
-                    destination = $('#panelSlid_' + target).offset().top;
-                }
-                $('html').animate({
-                    scrollTop: destination
-                }, 
-                {
-                    duration: 400, 
-                    specialEasing: {
-                    position: 'easeOutBounce'
-                    },
-                    complete: function(){
-                        let pYof = window.pageYOffset;
-                        $('#curent').attr('offset', pYof);
-                    }
-                });
-                $('#curent').html(target);
-            }
-        }
-    });
-
-    /* MAP */
+    /* MAP  HERE WILL BE  */
     function showMap(){
+        console.log('form new serch');
         $('#map').show(600);
     }
 
