@@ -29,31 +29,83 @@
             efterskole
         </h1>
 
-        <a class="btn menuOpen" data-toggle="collapse" href="#collapseExample"
-            role="button" aria-expanded="false" aria-controls="collapseExample">
-            <img src="assets/images/Hamburger_Menu_Black@2x.svg" alt="burger">
-        </a>            
         
-        <nav class="collapse menuWrp row" id="collapseExample">
+        <a class="btn menuOpen" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            <img src="assets/images/Hamburger_Menu_Black@2x.svg" alt="burger">
+        </a>
+        
+        <nav class="menuWrp row" id="meinMenuWrp">
             <ul class="nav second-menu justify-content-end">
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="#">Preschool Association</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">EN</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">For members</a>
+                    <a class="nav-link" href="#">School Login</a>
+                </li>
+            </ul>
+            <ul class="nav main-menu justify-content-end">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="false" aria-expanded="true">Preschool Association</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Separated link</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="false" aria-expanded="true">For members</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Separated link</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                        aria-haspopup="false" aria-expanded="true">Press</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Separated link</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Studies and statistics</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">FAQ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Leksikon</a>
+                    <a class="nav-link" href="#">Efterschool Magazine</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Blogs and vlogs</a>
-                </li> -->
+                </li>
+                <li class="nav-item">
+                    <span class="iconic iconic-magnifying-glass" title="magnifying glass" aria-hidden="true"></span>
+                </li>
+                <li class="nav-item">
+                    <button id="menuCloseBtn" class="btn close" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- Menu for Bootstrap own script
+
+        <a class="btn menuOpen" data-toggle="collapse" href="#collapseExample"
+            role="button" aria-expanded="false" aria-controls="collapseExample">
+            <img src="assets/images/Hamburger_Menu_Black@2x.svg" alt="burger">
+        </a>  
+
+        <nav class="collapse menuWrp row" id="collapseExample">
+            <ul class="nav second-menu justify-content-end">
                 <li class="nav-item">
                     <a class="nav-link" href="#">EN</a>
                 </li>
@@ -113,7 +165,7 @@
                     </button>
                 </li>
             </ul>
-        </nav>
+        </nav> -->
         
     </header>
         
@@ -1312,10 +1364,6 @@
     <script src="bootstrap-dist/js/bootstrap.min.js"></script>
     <script src="bootstrap-dist/js/bootstrap.bundle.min.js"></script>
 
-    <script src="assets/js/ScrollMagic.min.js"></script>
-    <script src="assets/js/plugins/debug.addIndicators.min.js"></script>
-
-    <script type="text/javascript" src="assets/fullpage/fullpage.min.js"></script>
     <script type="text/javascript" src="assets/js/script.js"></script>
 
 </body>

@@ -2,15 +2,49 @@ var bootstrapButton = $.fn.button.noConflict() // return $.fn.button to previous
 $.fn.bootstrapBtn = bootstrapButton            // give $().bootstrapBtn the Bootstrap functionality
 
 $( document ).ready(function() {
-    $('#collapseExample').on('show.bs.collapse', function (e) {
-        $('.logo').addClass('active');
-        $('.menuWrp').addClass('active');
-        $('.menuOpen').addClass('d-none');
+
+//  BOOTSTRAP MENU TOGGLE
+    // $('#collapseExample').on('show.bs.collapse', function (e) {
+    //     $('.logo').addClass('active');
+    //     $('.menuWrp').addClass('active');
+    //     $('.menuOpen').addClass('d-none');
+    // });
+    // $('#collapseExample').on('hide.bs.collapse', function (e) {
+    //     $('.logo').removeClass('active');
+    //     $('.menuWrp').removeClass('active');
+    //     $('.menuOpen').removeClass('d-none');
+    // });
+
+
+    $('.menuOpen').click(function(){
+        $('#meinMenuWrp').animate({
+                height: 'show'  
+            }, {
+                duration: 400, 
+                specialEasing: {
+                position: 'easeOutBounce'
+                },
+                complete: function(){
+                    $('.logo').addClass('active');
+                    $('.menuWrp').addClass('active');
+                    $('.menuOpen').addClass('d-none');
+                }
+            });
     });
-    $('#collapseExample').on('hide.bs.collapse', function (e) {
-        $('.logo').removeClass('active');
+    $('#menuCloseBtn').click(function(){
         $('.menuWrp').removeClass('active');
-        $('.menuOpen').removeClass('d-none');
+        $('#meinMenuWrp').animate({
+                height: 'hide'  
+            }, {
+                duration: 400, 
+                specialEasing: {
+                position: 'easeOutBounce'
+                },
+                complete: function(){
+                    $('.logo').removeClass('active');
+                    $('.menuOpen').removeClass('d-none');
+                }
+            });
     });
     
     // Some scrool magick
@@ -26,8 +60,8 @@ $( document ).ready(function() {
             $('.logo').addClass('onPage');
             $('.menuOpen').addClass('onPage');
         }
-        if(($('#curent').attr('curent') == 5) && (pYof <= (wih*length))){
-            $('#curent').attr('curent', 4);
+        if(($('#curent').attr('data-curent') == 5) && (pYof <= (wih*length))){
+            $('#curent').attr('data-curent', 4);
             $('.logo').removeClass('onPage');
             $('.menuOpen').removeClass('onPage');
             // let destination = $('#panelSlid_4').offset().top;

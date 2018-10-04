@@ -170,10 +170,24 @@ header{
     background-color: #fff; */
 }
 .menuWrp{
-    background-color: transparent;
+    /* background-color: transparent; */
     padding:0 20px;
-    opacity: 0;
-    transition: all .4s ease; 
+    /* opacity: 0; */
+    background-color: #fff;
+    color:#000;
+    transition: all .4s ease;
+    height: 0px;
+    overflow: hidden;
+    flex-direction: column; 
+}
+.menuWrp .main-menu .nav-link,
+.menuWrp .second-menu .nav-link{
+    transition: color .4s ease;
+    color:#fff;
+}
+.menuWrp.active{
+    height: 100px;
+    overflow: auto;
 }
 .iconic-magnifying-glass{
     display: inline-block;
@@ -182,34 +196,31 @@ header{
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
-}
-.close {
-    line-height: 38px;
-    font-size: 38px;
-    color:#fff;
-}
-.menuWrp.active{
-    opacity: 1;
-    background-color: #fff;
-}
-.menuWrp.show .close{
-    color:#000;
-}
-.menuWrp.show .iconic-magnifying-glass{
     background-image: url('../images/Search_Black@2x.svg');
 }
-.second-menu .nav-link{
-    color: #fff;
+.menuWrp .close{
+    line-height: 38px;
+    font-size: 38px;
+    color:#000;
+}
+.menuWrp.active .main-menu .nav-link{
+    color: #4a4a4a;
+    opacity: 1;
+}
+.menuWrp.active .main-menu .nav-link:hover,
+.menuWrp.active .main-menu .nav-link.active{
+    border-bottom: 2px solid #b2bc00;
+    color: #b2bc00;
+}
+.menuWrp.active .second-menu .nav-link{
+    color: #9b9b9b;
     font-size: 14px;
     transition: color .4s ease; 
 }
-.menuWrp.show .second-menu .nav-link{
-    color: #9b9b9b;
-}
-.menuWrp.show .second-menu .nav-item:first-child .nav-link{
+.menuWrp .second-menu .nav-item:first-child .nav-link{
     position: relative;
 }
-.menuWrp.show .second-menu .nav-item:first-child .nav-link::before{
+.menuWrp .second-menu .nav-item:first-child .nav-link::before{
     content: "";
     background: #9b9b9b;
     display: block;
@@ -228,15 +239,6 @@ header{
     border-bottom: 2px solid #fff;
     opacity: 0;
     transition: all .4s ease; 
-}
-.menuWrp.show .main-menu .nav-link{
-    color: #4a4a4a;
-    opacity: 1;
-}
-.menuWrp.show .main-menu .nav-link:hover,
-.menuWrp.show .main-menu .nav-link.active{
-    border-bottom: 2px solid #b2bc00;
-    color: #b2bc00;
 }
 
 /* ----===== TOP SLIDER ====---- */
